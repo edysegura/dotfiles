@@ -33,6 +33,11 @@ elif [ -f "$HOME/.linuxbrew/bin/brew" ]; then
   eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
 fi
 
+if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+  export SDKMAN_DIR="$HOME/.sdkman"
+  . "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
 if [ -n "$WSL_DISTRO_NAME" ] || [ -n "$IS_WSL" ]; then
   export BROWSER="wslview"
 fi
