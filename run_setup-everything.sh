@@ -102,6 +102,15 @@ zsh -c "source '$HOME/.zshrc' && antigen cleanup && antigen update"
 echo_task "Installing Homebrew bundle"
 brew bundle install --global
 
+echo_task "Installing SDKMAN!"
+sudo apt update -q
+sudo apt install -y zip
+bash -c "$(curl -fsSL "https://get.sdkman.io/?rcupdate=false")"
+bash -c "source '$HOME/.bashrc' && sdk selfupdate force"
+
+echo_task "Installing Java 8" 
+bash -c "source '$HOME/.bashrc' && sdk i java $(sdk ls java | grep -o '8.*.hs-adpt' | awk '{print $NF}') | grep "already installed" && true" 
+
 if is_wsl; then
   echo_task "Performing WSL specific steps"
 
