@@ -1,15 +1,23 @@
 #!/usr/bin/env bash
 
-set -e
+echo_task() {
+  printf "\033[0;34m--> %s\033[0m\n" "$@"
+}
 
-CONFIG="install.conf.yaml"
-DOTBOT_DIR="dotbot"
+set -euo pipefail
 
-DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ ! "$(command -v chezmoi)" ]; then
+  bin_dir="$HOME/.local/bin"
+  chezmoi="$bin_dir/chezmoi"
+  echo_task "Installing chezmoi to $chezmoi"
+  sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$bin_dir"
+else
+  chezmoi=$(which chezmoi)
+fi
 
-cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
-
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+echo_task "Initializing chezmoi"
+script_dir="$(cd "${BASH_SOURCE[0]%/*}" && pwd)"
+cmd="$chezmoi init --apply --source $script_dir"
+echo "$cmd"
+# shellcheck disable=SC2086
+exec $cmd
