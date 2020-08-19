@@ -114,7 +114,7 @@ if ! is_devcontainer; then
       echo -e "sdkman_auto_answer=true\n" >"$SDKMAN_DIR/etc/config" &&
       sdk selfupdate force &&
       echo_task "Installing Java 11" &&
-      identifier="$(sdk ls java | grep -o '11.0.*.hs-adpt' | awk '{print $NF}')" &&
+      identifier="$(sdk ls java | grep -o '11.*.hs-adpt' | awk '{print $NF}')" &&
       {
         output="$(yes | sdk i java "$identifier" | tee /dev/tty)" ||
           echo "$output" | grep -q "already installed"
