@@ -40,8 +40,8 @@
     prune-tags = !git tag -l | xargs git tag -d && git fetch -t
     prune-branches = fetch --prune
     prune = !git prune-branches && git prune-tags
-    set-pro = !git config user.email "felipesantos@inatel.br" && git config user.name 'Felipe de Cássio Rocha Santos'
-    set-personal = !git config user.email "felipecassiors@gmail.com" && git config user.name 'Felipe Santos'
+    set-pro = !git config user.email "edysegura@inatel.br" && git config user.name 'Edy Segura'
+    set-personal = !git config user.email "edysegura@gmail.com" && git config user.name 'Edy Segura'
     hist = log --pretty=format:'%C(yellow)%h%Creset %ad | %s%d %Cgreen[%an]%Creset' --graph --date=short
 [credential]
     {{- if .is_wsl }}

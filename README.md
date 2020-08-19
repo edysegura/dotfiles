@@ -1,6 +1,6 @@
 # Felipe Santos's dotfiles <!-- omit in toc -->
 
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/felipecassiors/dotfiles#scripts)
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/edysegura/dotfiles#scripts)
 
 Bootstrap your Ubuntu in a few minutes!
 
@@ -36,19 +36,19 @@ Now you will learn how to bootstrap this repository on your machine.
 You can use the [convenience script](./clone_and_install.sh) with, it will install Git in case you don't have it already:
 
 ```bash
-sh -c "$(wget -qO- https://git.io/felipecassiors-dotfiles)"
+sh -c "$(wget -qO- https://raw.githubusercontent.com/edysegura/dotfiles/master/scripts/install_dotfiles.sh)"
 ```
 
 > 💡 We use `wget` here because not all systems comes with `curl` installed. But the `curl` version of it is:
 > ```bash
->  sh -c "$(curl -fsSL https://git.io/felipecassiors-dotfiles)"
+>  sh -c "$(curl -fsSL https://raw.githubusercontent.com/edysegura/dotfiles/master/scripts/install_dotfiles.sh)"
 > ```
 
 #### Usage
 
 The convenience script supports two environment variables:
 
-- `DOTFILES_REPO`: Default to `felipecassiors`.
+- `DOTFILES_REPO`: Default to `edysegura`.
 - `DOTFILES_BRANCH`: Default to `master`.
 
 #### Examples
@@ -56,7 +56,7 @@ The convenience script supports two environment variables:
 - Using the convenience script to clone the dotfiles repository on branch `beta`:
 
   ```bash
-  DOTFILES_BRANCH=beta sh -c "$(wget -qO- https://git.io/felipecassiors-dotfiles)"
+  DOTFILES_BRANCH=beta sh -c "$(wget -qO- https://raw.githubusercontent.com/edysegura/dotfiles/master/scripts/install_dotfiles.sh)"
   ```
 
 ### Manually
