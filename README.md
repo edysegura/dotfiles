@@ -1,4 +1,4 @@
-# Felipe Santos's dotfiles <!-- omit in toc -->
+# Edy Segura's dotfiles <!-- omit in toc -->
 
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/edysegura/dotfiles#scripts)
 
